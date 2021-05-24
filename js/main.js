@@ -1,5 +1,5 @@
 
-   window.onload = function () {
+
     let toggles = false;
     var btn = document.getElementById('clicker');
     btn.addEventListener('click',function(){
@@ -14,5 +14,4 @@
         toggles = false;
     }
     });
-  }
-    
+   
