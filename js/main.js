@@ -47,4 +47,17 @@
       }
       console.log(day);
 
+      let car = {
+          model: 2010,
+          company: "BMW",
+          price: 4000+"$"
+      }
+      let x;
+      let fin = " ";
+      let car_detail = [];
+      for(x in car){
+           fin += car[x]+",";
+      }
+      console.log(fin);
+
       
