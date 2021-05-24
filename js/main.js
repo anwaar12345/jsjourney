@@ -58,5 +58,5 @@
         car_detail[x] = car[x];
       }
       console.log(car_detail);
-
+      
       
