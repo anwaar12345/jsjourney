@@ -53,11 +53,10 @@
           price: 4000+"$"
       }
       let x;
-      let fin = " ";
       let car_detail = [];
       for(x in car){
-           fin += car[x]+",";
+        car_detail[x] = car[x];
       }
-      console.log(fin);
+      console.log(car_detail);
 
       
