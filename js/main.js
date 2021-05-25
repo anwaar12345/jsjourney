@@ -58,15 +58,5 @@
         car_detail[x] = car[x];
       }
       console.log(car_detail);
-// hoisting
 
-a = 3;
-var a;
-console.log('hoisting',a);
-var a = 2;
-console.log(a) 
-
-/// smarter way to learn js kick start
-//from extreme basics
-alert(a);
 
