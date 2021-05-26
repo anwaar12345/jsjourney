@@ -57,3 +57,29 @@ fruits.splice(1,0,'Strawberry');
 console.log(fruits,'splice');
 var newa = fruits.slice(1,3) 
 console.log(newa,'slice');
+console.log("********************** string manipulation started *******************************");
+
+var strs = 'apple';
+console.log(strs.indexOf('a'),strs.charAt(0));
+
+console.log("*********************** date manipulation *************************************");
+var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+var today = new Date();
+console.log(dayNames[today.getDay()],today.getFullYear());
+
+console.log("************************ functions ****************************");
+function expandLoris(){
+    document.getElementById('slowLoris').innerHTML = 'Slow lorises are a group of several species of trepsirrhine primates which  make up the genus Nycticebus. They have a round head, narrow snout, large eyes, and a variety of distinctive coloration patterns that are species-dependent. The hands and feet of slow lorises have several adaptations that give them a pincer-like grip and enable them to grasp branches for long periods of time. Slow lorises have a toxic bite, a rare trait among mammals';
+}
+document.getElementById('image').addEventListener('mouseover',function(){
+   
+    document.getElementById(this.id).src = "https://1.bp.blogspot.com/-pdqcVeIQp64/XDX7TzdRdcI/AAAAAAAAM8E/ZmGuB6caZqIGmEflGHcj3zgXJJrmqRLdgCLcBGAs/w1200-h630-p-k-no-nu/Free%2BCourses%2Bto%2Blearn%2BJavaScript.jpg";
+})
+
+document.getElementById('image').addEventListener('mouseout',function(){
+   
+    document.getElementById(this.id).src = "https://www.tutorialrepublic.com/lib/images/javascript-illustration.png";
+})
+
+
