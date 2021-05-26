@@ -82,4 +82,16 @@ document.getElementById('image').addEventListener('mouseout',function(){
     document.getElementById(this.id).src = "https://www.tutorialrepublic.com/lib/images/javascript-illustration.png";
 })
 
+var headings  = document.getElementsByTagName('h1');
 
+for(let z = 0; z < headings.length; z++){
+    console.log(headings[z].style.color = 'green')
+}
+var claa = document.getElementsByClassName('cla');
+
+for(let x = 0; x < claa.length; x++){
+claa[x].style.color="lightseagreen";
+}
+
+
+console.log("*************************************** dom traversing advance *********************************************");
