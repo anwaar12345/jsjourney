@@ -57,5 +57,3 @@ fruits.splice(1,0,'Strawberry');
 console.log(fruits,'splice');
 var newa = fruits.slice(1,3) 
 console.log(newa,'slice');
-
-
