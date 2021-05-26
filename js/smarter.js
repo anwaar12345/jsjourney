@@ -95,3 +95,16 @@ claa[x].style.color="lightseagreen";
 
 
 console.log("*************************************** dom traversing advance *********************************************");
+
+var cal = document.getElementById('cal');
+var p = cal.getElementsByTagName("p");
+p[1].style.color = "lightseagreen";
+console.log(p)
+
+console.log("*************************************** dom traversing advance using childnode *********************************************");
+var cal = document.getElementById('cal');
+var p = cal.childNodes[1];
+p.style.color = "lightseagreen";
+console.log(p)
+
+console.log("***********************************************  *************************************************")
