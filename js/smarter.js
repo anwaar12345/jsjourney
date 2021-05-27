@@ -129,8 +129,26 @@ var ny = document.getElementById('ny');
 
 for(var i = 0; i < ny.previousSibling.previousSibling.childNodes.length; i++){
     if(ny.previousSibling.previousSibling.childNodes[i].nodeType == 1){
-        console.log(ny.previousSibling.previousSibling.childNodes[i].innerHTML)
+        console.log(ny.previousSibling.previousSibling.childNodes[i].innerHTML+=" added")
+        
     }
 }
 
+var image = document.createElement('img');
+image.setAttribute('src','https://www.tutorialrepublic.com/lib/images/javascript-illustration.png');
+image.setAttribute('border','5')
+image.style.borderRadius='30px';
+document.body.appendChild(image)
+
+
+
+var para = document.createElement('p');
+para.setAttribute('id','para')
+var texts = document.createTextNode('Assalam O Alaikum Anwar Shah');
+var text2 = document.createTextNode('intro ');
+para.appendChild(texts);
+document.body.appendChild(para)
+var para1 = document.getElementById('para').firstChild;
+document.getElementById('para').insertBefore(text2,texts);
+console.log(para1)
 
