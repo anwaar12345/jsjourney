@@ -107,4 +107,30 @@ var p = cal.childNodes[1];
 p.style.color = "lightseagreen";
 console.log(p)
 
-console.log("***********************************************  *************************************************")
+console.log("*********************************************** DOM ADVANCE *************************************************")
+
+console.log(document.childNodes[1].childNodes[2].childNodes[1])
+
+
+console.log("******************* DOM ************************");
+
+var dm = document.getElementById('cal');
+
+for(var i=0;i<dm.childNodes.length;i++){
+    if(dm.childNodes[i].nodeType==1){
+        // dm.childNodes[i].innerHTML = "h1";
+        // console.log(dm.childNodes[i].nodeName)
+    }else if(dm.childNodes[i].nodeType==3){
+      
+    }
+}
+
+var ny = document.getElementById('ny');
+
+for(var i = 0; i < ny.previousSibling.previousSibling.childNodes.length; i++){
+    if(ny.previousSibling.previousSibling.childNodes[i].nodeType == 1){
+        console.log(ny.previousSibling.previousSibling.childNodes[i].innerHTML)
+    }
+}
+
+
