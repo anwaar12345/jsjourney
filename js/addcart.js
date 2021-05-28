@@ -27,7 +27,6 @@
     function addToCart(){
         var shows = document.getElementById('cart');
         if(typeof(shows) == 'object' && shows == null){
-            console.log(shows);
             var divNew =  document.createElement('div');
             divNew.setAttribute('id','cart');
             divNew.setAttribute('class','cart');
@@ -36,12 +35,14 @@
             var divUpper = divNew.previousSibling.previousSibling.childNodes;
           
             for(var i = 0; i< divUpper.length; i++){
-               if(divUpper[i].nodeType == 1 && divUpper[i].innerHTML != "Add To Cart"){
+                console.log()
+                if(divUpper[i].nodeType == 1 && divUpper[i].nodeName.toLowerCase() != "button" && divUpper[i].nodeName.toLowerCase() != "input"){
                    
-                document.getElementById('cart').appendChild(divUpper[i].cloneNode(true))
-               }
+                    document.getElementById('cart').appendChild(divUpper[i].cloneNode(true))
+                 }  
+    
             }
-        }
+        }   
      
       
     }
