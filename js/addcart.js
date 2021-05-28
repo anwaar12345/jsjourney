@@ -26,7 +26,7 @@
     }
     function addToCart(){
         var shows = document.getElementById('cart');
-        if(typeof(shows) == 'object' && shows == null){
+        if(typeof(shows) == 'object' && shows == null){ //if no div created then create else no
             var divNew =  document.createElement('div');
             divNew.setAttribute('id','cart');
             divNew.setAttribute('class','cart');
@@ -35,12 +35,22 @@
             var divUpper = divNew.previousSibling.previousSibling.childNodes;
           
             for(var i = 0; i< divUpper.length; i++){
-                console.log()
                 if(divUpper[i].nodeType == 1 && divUpper[i].nodeName.toLowerCase() != "button" && divUpper[i].nodeName.toLowerCase() != "input"){    
+                  
                     document.getElementById('cart').appendChild(divUpper[i].cloneNode(true))
                  }  
             }
+        }else{
+            shows.childNodes.forEach((e)=>{
+                if(e.nodeType == 1){
+                   setInterval(()=>{
+                    console.log(e.remove(),shows.remove())
+                   },2000)
+                   
+                  
+                }
+            })
         }   
-     
+   
       
     }
