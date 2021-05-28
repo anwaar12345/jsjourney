@@ -19,12 +19,14 @@ if(task.value == "" && err == null){
     document.getElementById('lists').appendChild(item); 
     //create delete btn
     var dltbtn = document.createElement('button');
+    dltbtn.setAttribute('class',"bntd")
     dltbtn.setAttribute('onclick','deleteBtn(this)')
     var dltTxt = document.createTextNode('Delete');
     dltbtn.appendChild(dltTxt);
     item.appendChild(dltbtn);
     //create edit
     var edtbtn = document.createElement('button');
+    edtbtn.setAttribute('class',"bnte")
     edtbtn.setAttribute('onclick','edtBtn(this)')
     var edtTxt = document.createTextNode('Edit');
     edtbtn.appendChild(edtTxt);
@@ -38,6 +40,7 @@ if(task.value == "" && err == null){
     document.getElementById('lists').appendChild(item); 
     //create delete btn
     var dltbtn = document.createElement('button');
+    dltbtn.setAttribute('class',"bntd")
     dltbtn.setAttribute('onclick','deleteBtn(this)')
     var dltTxt = document.createTextNode('Delete');
     dltbtn.appendChild(dltTxt);
@@ -45,6 +48,7 @@ if(task.value == "" && err == null){
      //create edit
      var edtbtn = document.createElement('button');
      edtbtn.setAttribute('onclick','edtBtn(this)')
+     edtbtn.setAttribute('class',"bnte")
      var edtTxt = document.createTextNode('Edit');
      edtbtn.appendChild(edtTxt);
      item.append(edtbtn)
@@ -58,6 +62,8 @@ function deleteBtn(e){
 }
 
 function edtBtn(e){
+    if(e.parentNode.firstChild.nodeValue != "" && e.parentNode.firstChild.nodeValue != 'undefined' && e.parentNode.firstChild.nodeValue != null){
     var prom = prompt('Edit Task',e.parentNode.firstChild.nodeValue);
     e.parentNode.firstChild.nodeValue = prom;
+    }
 }
