@@ -58,8 +58,6 @@ function deleteBtn(e){
 }
 
 function edtBtn(e){
-    var item = e.parentNode.firstChild.nodeValue;
-    var prom = prompt('Edit Task',item);
-    console.log(prom)
+    var prom = prompt('Edit Task',e.parentNode.firstChild.nodeValue);
     e.parentNode.firstChild.nodeValue = prom;
 }
