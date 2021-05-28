@@ -36,11 +36,9 @@
           
             for(var i = 0; i< divUpper.length; i++){
                 console.log()
-                if(divUpper[i].nodeType == 1 && divUpper[i].nodeName.toLowerCase() != "button" && divUpper[i].nodeName.toLowerCase() != "input"){
-                   
+                if(divUpper[i].nodeType == 1 && divUpper[i].nodeName.toLowerCase() != "button" && divUpper[i].nodeName.toLowerCase() != "input"){    
                     document.getElementById('cart').appendChild(divUpper[i].cloneNode(true))
                  }  
-    
             }
         }   
      
