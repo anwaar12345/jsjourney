@@ -1,4 +1,6 @@
 document.getElementById('add').addEventListener('click',() => {
+try{
+ 
 var task = document.getElementById('task');
 var err = document.getElementById('err');
 
@@ -9,6 +11,8 @@ if(task.value == "" && err == null){
    var msg = document.createTextNode("Please Enter Task");
    var err_msg = err.appendChild(msg);
    document.getElementById('task').insertAdjacentElement("afterend",err);
+//    throw "Please enter at least 8 characters.";                 
+   return false;
 }else if(document.getElementById('err') != null && task.value != ""){
     document.getElementById('err').remove();
     //create text node
@@ -55,6 +59,9 @@ if(task.value == "" && err == null){
     task.value = "";
 }
 
+}catch(e){
+    console.log(e);
+}
 });
 
 function deleteBtn(e){
@@ -67,3 +74,12 @@ function edtBtn(e){
     e.parentNode.firstChild.nodeValue = prom;
     }
 }
+
+// console.log(window.location.reload())
+// history.back()
+// history.forward()
+// console.log(window.referrer)
+// var test = window.open();
+// var texts = "<h1><a href='https://www.google.com'>GOOGLE</a></h1>";
+// test.document.write(texts);
+window.open("./addcart.html","","width=400,height=400");
