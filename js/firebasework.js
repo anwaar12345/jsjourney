@@ -69,5 +69,16 @@ function deleteBtn(e){
 }
 
 function edtBtn(e){
-
+    var modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    document.getElementsByClassName('close')[0].addEventListener('click',() => {
+        modal.style.display = "none";
+    });
+    var appendarea = document.getElementsByClassName('modal-content');
+    
+    var nameinput = document.createElement('input');
+    nameinput.setAttribute('id','editName');
+    console.log(appendarea[0].insertAdjacentElement('afterbegin',nameinput))
+    
 }
+
