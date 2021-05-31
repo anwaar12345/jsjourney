@@ -1,18 +1,22 @@
 function saveData(){
 var name = document.getElementById('name');
 var email = document.getElementById('email');
-var firekey = firebase.database().ref('students').push().key;
-var student = {
-    name: name.value,
-    email: email.value,
-    key: firekey
+if(name.value != "" && email.value != ""){
+    var firekey = firebase.database().ref('students').push().key;
+    var student = {
+        name: name.value,
+        email: email.value,
+        key: firekey
+    }
+    if(firebase.database().ref('students').child(firekey).set(student)){
+        name.value = "";
+        email.value = "";
+        alert('student Added successfully');
+    }   
+     
+}else if( name.value == "" && email.value == ""){
+    alert("please fill the fields");
 }
-if(firebase.database().ref('students').child(firekey).set(student)){
-    name.value = "";
-    email.value = "";
-    alert('student Added successfully');
-}   
-
 }
 
 function getData(){
