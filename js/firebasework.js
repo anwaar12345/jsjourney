@@ -69,16 +69,41 @@ function deleteBtn(e){
 }
 
 function edtBtn(e){
-    var modal = document.getElementById("myModal");
-    modal.style.display = "block";
-    document.getElementsByClassName('close')[0].addEventListener('click',() => {
-        modal.style.display = "none";
-    });
-    var appendarea = document.getElementsByClassName('modal-content');
-    
-    var nameinput = document.createElement('input');
-    nameinput.setAttribute('id','editName');
-    console.log(appendarea[0].insertAdjacentElement('afterbegin',nameinput))
+    if(document.getElementById("myModal") == null){
+        var modal =  document.createElement('div');
+        modal.setAttribute('id','myModal');
+        modal.setAttribute('class','myModal');
+        document.getElementsByClassName('main')[0].appendChild(modal);
+        var modalContent = document.createElement('div');
+        modalContent.setAttribute('id','modal-content');
+        modalContent.setAttribute('class','modal-content');
+        var close = document.createElement('span');
+        close.setAttribute('class','close');
+        close.innerHTML = '&times';
+        modalContent.appendChild(close);
+        modal.appendChild(modalContent);
+
+        var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+        var appendarea = document.getElementsByClassName('modal-content');
+        if(document.getElementById('editName') == null && document.getElementById('editEmail') == null){
+            document.getElementsByClassName('close')[0].addEventListener('click',() => {
+                modal.style.display = "none";
+                modalContent.innerHTML = "";
+                modal.innerHTML = "";
+                modal.remove();
+            });
+            var nameinput = document.createElement('input');
+            nameinput.setAttribute('id','editName');
+            nameinput.value = e.parentNode.childNodes[0].textContent.split(': ')[1];
+            console.log(appendarea[0].insertAdjacentElement('afterbegin',nameinput))
+            var emailinput = document.createElement('input');
+            emailinput.setAttribute('id','editEmail');
+            emailinput.value = e.parentNode.childNodes[1].textContent.split(': ')[1];
+
+            appendarea[0].insertAdjacentElement('afterbegin',emailinput)     
+        }
+    }    
     
 }
 
