@@ -69,6 +69,7 @@ function deleteBtn(e){
 }
 
 function edtBtn(e){
+    var key = e.parentNode.id;
     if(document.getElementById("myModal") == null){
         var modal =  document.createElement('div');
         modal.setAttribute('id','myModal');
@@ -100,10 +101,36 @@ function edtBtn(e){
             var emailinput = document.createElement('input');
             emailinput.setAttribute('id','editEmail');
             emailinput.value = e.parentNode.childNodes[1].textContent.split(': ')[1];
-
-            appendarea[0].insertAdjacentElement('afterbegin',emailinput)     
+            appendarea[0].insertAdjacentElement('afterbegin',emailinput)  
+            var btnEdit =  document.createElement('button');
+            btnEdit.setAttribute('onclick','editDetails(this)');
+            var btnTxt = document.createTextNode('Save');
+            btnEdit.appendChild(btnTxt);
+            appendarea[0].appendChild(btnEdit);
+            var inputHidden = document.createElement('input');
+            inputHidden.setAttribute('type','hidden');   
+            inputHidden.value = key;
+            appendarea[0].appendChild(inputHidden)
         }
     }    
     
 }
 
+function editDetails(e){
+  var updateData = {
+      key: e.parentNode.childNodes[4].value,
+      name: e.parentNode.childNodes[1].value,
+      email: e.parentNode.childNodes[0].value
+  }
+  if(firebase.database().ref('students').child(e.parentNode.childNodes[4].value).set(updateData)){
+    alert('Data Updated Successfully');
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
+    var modalContent = document.getElementById('modal-content');
+    modalContent.innerHTML = "";
+    modal.innerHTML = "";
+    modal.remove();
+    window.location.reload();  
+  }
+
+}
