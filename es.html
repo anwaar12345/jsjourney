@@ -5,6 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ES6</title>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-analytics.js"></script>
+    
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyDmG6eDtZN9rvI2EotFZd_3N6zmmo8BBjg",
+        authDomain: "todos-a1ec5.firebaseapp.com",
+        projectId: "todos-a1ec5",
+        storageBucket: "todos-a1ec5.appspot.com",
+        messagingSenderId: "288523780891",
+        appId: "1:288523780891:web:6e075062d07b211b84c9be",
+        measurementId: "G-42EP425N0D"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
 </head>
 <body>
    <script src="./js/es.js"></script>
