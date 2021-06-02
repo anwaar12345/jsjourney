@@ -21,14 +21,12 @@ if(name.value != "" && email.value != ""){
 
 function getData(){
     var list = document.getElementById('list');
-    var name;
+    
     var email;
     var key;
     var students = firebase.database().ref().child('students');
-    var data_details = [];
 
     students.on('child_added', data =>{
-        console.log(data.val().value)
      named = data.child('name').val();
      email = data.child('email').val();
      key = data.child('key').val();
@@ -57,8 +55,6 @@ function getData(){
      element.appendChild(dltbtn)
      element.appendChild(edtbtn)   
      list.appendChild(element);
-     var divs = document.getElementById('list');
-     divs.appendChild(named)
     });
        
 }
