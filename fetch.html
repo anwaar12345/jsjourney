@@ -23,20 +23,62 @@
 // .then(data => {  return data.json(); })
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-fetch("https://reqres.in/api/users",{
-    method: "post",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        name: "mr user"
-    })
-})
-.then(res => {return res.json(); } )
-.then(res => {
-    console.log(res.name)
-})
-.catch(err => console.log(err) )
+
+// var t='';
+// var promise = new Promise((resolve,reject) => {
+//     fetch("https://reqres.in/api/users",{
+//     method: "post",
+//     headers: {
+//         "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//         name: "mr user"
+//     })
+// })
+// .then(res => {
+//     if(res.status!==201){
+//         reject('failed')
+//     }
+//     else {
+//         return res.json();
+//     }
+// })
+// .then(res => {
+//     resolve(res)
+// })
+// .catch(err => console.log(err) )
+
+// });
+// promise.then(function(data){
+//     t=data;
+//     console.log(data)
+// })
+
+// .catch( error => { return error })
+
+var promise = new Promise((resolve,reject)=>{
+    fetch("https://reqres.in/api/users")
+    .then(data => {  
+    if(data.status != 200 && data.ok != true){
+        reject("failed");
+    }else if(data.status == 200 && data.ok == true){
+        return data.json()  
+    }
+ })
+.then(data => { resolve(data) } )
+});
+
+promise.then(data => {
+    console.log(data)
+    for(var i = 0; i < data.data.length;i++){
+      document.write(`<div class="list">  <ul>  
+        <li> Name: ${data.data[i].first_name} ${data.data[i].last_name} </br> Email: ${data.data[i].email} <br>
+            <img src="${data.data[i].avatar}"">
+            </li>
+        </ul> </div>`)
+    }
+} )
+.catch(e => console.log(e) );
 
 </script>   
 </body>
