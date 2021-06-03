@@ -7,6 +7,8 @@
     <title>Save Data To Firebase</title>
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
          https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -97,6 +99,12 @@
 </head>
 <body>
     <div class="main">
+      <button id="logout" onclick="firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        alert('logout')
+      }).catch((error) => {
+        // An error happened.
+      });"> logout </button>
         <div class="inp">
             <label for="name">Name: </label><input type="text" id="name" placeholder="Enter Name" required />
             <br>

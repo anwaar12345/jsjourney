@@ -130,3 +130,19 @@ function editDetails(e){
   }
 
 }
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      var uid = user.uid;
+      document.getElementById('logout').style.display = "block";
+      console.log(uid);
+      // ...
+    } else {
+      // User is signed out
+      window.location.href = "./sigin_signup.html";
+      // ...
+      document.getElementById('logout').style.display = "none";
+    }
+  });
+
+
+  
