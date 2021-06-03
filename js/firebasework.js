@@ -8,7 +8,7 @@ if(name.value != "" && email.value != ""){
         email: email.value,
         key: firekey
     }
-    if(firebase.database().ref('students').child(firekey).set(student)){
+    if(firebase.database().ref('students/'+localStorage.getItem('uid')).child(firekey).set(student)){
         name.value = "";
         email.value = "";
         alert('student Added successfully');
@@ -24,9 +24,9 @@ function getData(){
     
     var email;
     var key;
-    var students = firebase.database().ref().child('students');
-
+    var students = firebase.database().ref().child('students/'+localStorage.getItem('uid'));
     students.on('child_added', data =>{
+    
      named = data.child('name').val();
      email = data.child('email').val();
      key = data.child('key').val();
@@ -60,7 +60,7 @@ function getData(){
 }
 getData();
 function deleteBtn(e){
-    firebase.database().ref('students/'+e.parentNode.id).remove();
+    firebase.database().ref('students/'+localStorage.getItem('uid')+'/'+e.parentNode.id).remove();
     e.parentNode.remove()
 }
 
@@ -118,7 +118,7 @@ function editDetails(e){
       name: e.parentNode.childNodes[1].value,
       email: e.parentNode.childNodes[0].value
   }
-  if(firebase.database().ref('students').child(e.parentNode.childNodes[4].value).set(updateData)){
+  if(firebase.database().ref('students/'+localStorage.getItem('uid')).child(e.parentNode.childNodes[4].value).set(updateData)){
     alert('Data Updated Successfully');
     var modal = document.getElementById("myModal");
     modal.style.display = "none";
@@ -135,12 +135,15 @@ firebase.auth().onAuthStateChanged((user) => {
       var uid = user.uid;
       document.getElementById('logout').style.display = "block";
       console.log(uid);
+      localStorage.setItem('uid',uid);
       // ...
     } else {
       // User is signed out
       window.location.href = "./sigin_signup.html";
       // ...
       document.getElementById('logout').style.display = "none";
+      localStorage.setItem('uid',null);
+      console.log(localStorage.getItem('uid'));
     }
   });
 

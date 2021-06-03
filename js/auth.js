@@ -10,6 +10,8 @@ var signup;
     // Signed in 
     var user = userCredential.user;
     console.log(user)
+    document.getElementById('email').value = "";
+    document.getElementById('password').value = "";
   })
   .catch((error) => {
     var errorCode = error.code;
