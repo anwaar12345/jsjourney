@@ -186,4 +186,4 @@ async function get_data_s() {
 var datas = await newpro;
 console.log(datas,"async");
 }
-console.log(get_data_s(),"datas async");
+get_data_s();

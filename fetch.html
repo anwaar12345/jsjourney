@@ -24,37 +24,37 @@
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
 
-// var t='';
-// var promise = new Promise((resolve,reject) => {
-//     fetch("https://reqres.in/api/users",{
-//     method: "post",
-//     headers: {
-//         "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({
-//         name: "mr user"
-//     })
-// })
-// .then(res => {
-//     if(res.status!==201){
-//         reject('failed')
-//     }
-//     else {
-//         return res.json();
-//     }
-// })
-// .then(res => {
-//     resolve(res)
-// })
-// .catch(err => console.log(err) )
+var t='';
+var promise = new Promise((resolve,reject) => {
+    fetch("https://reqres.in/api/users",{
+    method: "post",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: "mr user"
+    })
+})
+.then(res => {
+    if(res.status!==201){
+        reject('failed')
+    }
+    else {
+        return res.json();
+    }
+})
+.then(res => {
+    resolve(res)
+})
+.catch(err => console.log(err) )
 
-// });
-// promise.then(function(data){
-//     t=data;
-//     console.log(data)
-// })
+});
+promise.then(function(data){
+    t=data;
+    console.log(data)
+})
 
-// .catch( error => { return error })
+.catch( error => { return error })
 
 var promise = new Promise((resolve,reject)=>{
     fetch("https://reqres.in/api/users")

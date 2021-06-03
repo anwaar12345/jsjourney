@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birth Day CountDOWN</title>
+</head>
+<body>
+    <h1 id="time-left"></h1>
+    <script>
+       let timeLeft = document.getElementById('time-left'); 
+       console.log(timeLeft)
+       const today = new Date();
+       const birthDay = new Date('2021-06-05 ');
+       const sec = 1000;
+       const minute = sec * 60;
+       const hour = minute * 60;
+       const day = hour * 24;
+       function countDown(){
+         var timeSpan  = birthDay - today;
+         console.log(timeSpan);
+         if(timeSpan <= -day){
+            timeLeft.innerHTML = "Hope you had Great Birth Day";
+             clearInterval(timeInterval)
+             return;
+         }
+         if(timeSpan <= 0){
+             timeLeft.innerHTML = "Happy BirthDay";
+             clearInterval(timeInterval)
+             return;
+            }
+            const days = Math.floor(timeSpan/day);
+            const hours  = Math.floor((timeSpan % day)/hour)
+            const minutes = Math.floor((timeSpan % hour)/minute)
+            const seconds = Math.floor((timeSpan % minute)/sec)
+            timeLeft.innerHTML = `${days} Days ${hours} Hours ${minutes} Minutes and ${seconds} Remaining`;
+            clearInterval(timeInterval);
+        }
+     let  timeInterval = setInterval(countDown,1000);
+    </script>
+</body>
+</html>
