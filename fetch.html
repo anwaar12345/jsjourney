@@ -23,7 +23,20 @@
 // .then(data => {  return data.json(); })
 // .then(data => console.log(data))
 // .catch(err => console.log(err))
-
+fetch("https://reqres.in/api/users",{
+    method: "post",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name: "mr user"
+    })
+})
+.then(res => {return res.json(); } )
+.then(res => {
+    console.log(res.name)
+})
+.catch(err => console.log(err) )
 
 </script>   
 </body>
