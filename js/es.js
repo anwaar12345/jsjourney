@@ -49,11 +49,12 @@ setInterval(()=>{
 
  console.log('****************** promise *****************');
 
- 
+ var c;
 
  var promiseStatus = new Promise((resolve,reject) => {
    firebase.database().ref('students').orderByValue().on('child_added',(data) =>{
     if(data.val()){
+     data.val();
         resolve(data.val())
     }else{
         reject("Some thing went wrong");
@@ -63,14 +64,15 @@ setInterval(()=>{
  });
 
  promiseStatus.then((data) => {
-     console.log(data);
+    c= data; 
+    console.log("firbase data ",data);
  })
  .catch((error) => {
      console.log(error);
  });
 
 
- console.log('****************  Array Destructring ********************')
+ console.log('****************  Array Destructring ********************',c)
 
  let names = ['Anwar Shah','Anwar Ahmed Shah','Syed Anwar Ahmed Shah'];
   let [n1,n2,n3] = names;
@@ -168,3 +170,20 @@ class Students extends School{
 // console.log(sch);
 let myInfo = new Students("school","Syed Anwar Ahmed Shah",26);
 console.log(myInfo);
+
+
+console.log("*********** fetch api ***");
+async function get_data_s() {
+ let newpro = new Promise((resolve,reject) => {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+    .then(response => response.json())
+    .then(data => {
+        resolve(data)
+    } ).catch( error => {
+        reject(data)
+    })
+})
+var datas = await newpro;
+console.log(datas,"async");
+}
+console.log(get_data_s(),"datas async");
