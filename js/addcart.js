@@ -89,6 +89,6 @@ console.log(d)
 d.forEach(e => {
     console.log(e,'s')
 })
-console.log(d)
+console.log(d);
 
 
